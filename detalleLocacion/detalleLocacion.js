@@ -29,8 +29,8 @@ $(document).ready(function () {
             button ="<td><a href='../detalleRegion/detalleRegion.html?region="+ regresar[6]+"' class='btn btn-primary botonDetalle'>" +"Regresar a la Region" + "</a></td>";
 
         $("#regresarRegion").html(button);
-        $("#labelLocacion").text("Locación:" +location);
-        $("#labelRegion").text("Región:" +region);
+        $("#labelLocacion").text("Locación: " +location);
+        $("#labelRegion").text("Región: " +region);
         $("#tablaAreas").html(tablaDinamic);
 
     }).fail(function (e){
