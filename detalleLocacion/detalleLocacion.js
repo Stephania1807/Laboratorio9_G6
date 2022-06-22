@@ -17,7 +17,7 @@ $(document).ready(function () {
             tablaDinamic += "<tr>";
             tablaDinamic += "<td>" + (i + 1) + "</td>";
             tablaDinamic += "<td>"+ listapokemones2[i].name + "</td>";
-            tablaDinamic += "<td><a href='detalleLocacion/detalleLocacion.html?location="+ (i+1)+"' class='btn btn-primary botonDetalle'>" +"Detalles" + "</a></td>";
+            tablaDinamic += "<td><a href='../detalleLocacion/detalleLocacion.html?locacion="+ (i+1)+"' class='btn btn-primary botonDetalle'>" +"Detalles" + "</a></td>";
             tablaDinamic += "</tr>";
         }
 
