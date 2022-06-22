@@ -45,8 +45,7 @@ $(document).ready(function () {
             for(let i = 0; i<listapokemones.length; i++){
                 $.get(listapokemones[i].pokemon.url).done(function (pikachu){
                     console.log(pikachu);
-                    $("#pokemons").append("<div style='border: solid; margin-left: 50px; margin-right: 50px; margin-bottom: 50px' class='col-2'>" +
-                        "<img src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/version\n" +
+                    $("#pokemons").append("<div style='border: solid; margin-left: 50px;margin-right: 50px;margin-bottom: 50px' class='col-2'><img src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/version\n" +
                         "s/generation-v/black-white/animated/" +pikachu.id+".gif'> <br>" +pikachu.name +" </div>")
                 }).fail(function (ee){
                     console.log(ee);
