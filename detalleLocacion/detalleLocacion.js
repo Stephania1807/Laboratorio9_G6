@@ -40,7 +40,7 @@ $(document).ready(function () {
         url = $(this).val();
         $("#pokemons").empty();
         $.get(url).done(function (data){
-            $("#areaSeleccionada").html("Pokemons a encontrarse en el area: "+data.name);
+            $("#areaSeleccionada").html("Pokemones a encontrarse en el area: "+data.name);
             let listapokemones = data.pokemon_encounters;
             for(let i = 0; i<listapokemones.length; i++){
                 $.get(listapokemones[i].pokemon.url).done(function (pikachu){
