@@ -13,7 +13,7 @@ $(document).ready(function () {
             tablaDinamic += "<tr>";
             tablaDinamic += "<td>" + (i + 1) + "</td>";
             tablaDinamic += "<td>"+ listapokemones[i].name + "</td>";
-            tablaDinamic += "<td><a href='detalleRegion/detalleRegion.htm?region="+ (i+1)+"' class='btn btn-primary'>" +"Detalles" + "</a></td>";
+            tablaDinamic += "<td><a href='detalleRegion/detalleRegion.html?region="+ (i+1)+"' class='btn btn-primary botonDetalle'>" +"Detalles" + "</a></td>";
             tablaDinamic += "</tr>";
         }
 
