@@ -11,7 +11,7 @@ $(document).ready(function () {
     }).done(function (data){
 
         let listapokemones1 = data.locations;
-        let region = data.name;
+        $("#labelRegion").text("Región " + data.name);
         console.log(listapokemones1);
         console.log(listapokemones1.length);
         let tablaDinamic="";
@@ -38,8 +38,7 @@ $(document).ready(function () {
     ).done(function (data){
         var pagina = 1;
         var cantidad = 10;
-        let region = data.name;
-        $("#labelRegion").val(region);
+
         let listaLocaciones = data.locations.slice((pagina-1)*cantidad,(pagina)*cantidad);
         let paginas= Math.ceil(data.locations.length/cantidad);
         let paginadohtml="<li class='page-item disabled'><button class='page-link' id='previous' >Previous</button></li>";
@@ -116,6 +115,7 @@ $(document).ready(function () {
                 contenthtml+= "</tr>";
             });
             $("#tablaLocaciones").html(contenthtml);
+
 
         });
     }).fail(function (err){
