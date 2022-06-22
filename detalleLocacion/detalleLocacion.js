@@ -25,7 +25,7 @@ $(document).ready(function () {
         let regresar = data.region.url.split("/");
 
         let button="";
-            button ="<td><a href='../detalleRegion/detalleRegion.html?region="+ regresar[6]+"' class='btn btn-primary botonDetalle'>" +"Regresar a la lista de regiones" + "</a></td>";
+            button ="<td><a href='../detalleRegion/detalleRegion.html?region="+ regresar[6]+"' class='btn btn-primary botonDetalle'>" +"Regresar a la Region" + "</a></td>";
 
         $("#regresarRegion").html(button);
         $("#labelLocacion").text("Locación:" +location);
