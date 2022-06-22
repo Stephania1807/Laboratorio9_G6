@@ -10,6 +10,8 @@ $(document).ready(function () {
         url:url,
     }).done(function (data){
         let listapokemones2 = data.areas;
+        let location = data.name;
+        let region = data.region.name;
         console.log(listapokemones2);
         console.log(listapokemones2.length);
         let tablaDinamic="";
@@ -17,10 +19,11 @@ $(document).ready(function () {
             tablaDinamic += "<tr>";
             tablaDinamic += "<td>" + (i + 1) + "</td>";
             tablaDinamic += "<td>"+ listapokemones2[i].name + "</td>";
-            tablaDinamic += "<td><a href='../detalleLocacion/detalleLocacion.html?locacion="+ (i+1)+"' class='btn btn-primary botonDetalle'>" +"Detalles" + "</a></td>";
+            tablaDinamic += "<td><a href='' class='btn btn-primary botonDetalle'>" +"Ver Pokemones" + "</a></td>";
             tablaDinamic += "</tr>";
         }
-
+        $("#labelLocacion").val(location);
+        $("#labelRegion").val(region);
         $("#tablaAreas").html(tablaDinamic);
     }).fail(function (e){
         console.log(e)
