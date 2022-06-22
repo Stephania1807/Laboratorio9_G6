@@ -15,14 +15,18 @@ $(document).ready(function () {
         console.log(listapokemones1);
         console.log(listapokemones1.length);
         let tablaDinamic="";
-        for(let i = 0; i<listapokemones1.length; i++){
+        for(let i = 0; i<listapokemones1.length; i++) {
             tablaDinamic += "<tr>";
             tablaDinamic += "<td>" + (i + 1) + "</td>";
-            tablaDinamic += "<td>"+ listapokemones1[i].name + "</td>";
+            tablaDinamic += "<td>" + listapokemones1[i].name + "</td>";
             let id = listapokemones1[i].url.split("/");
-            tablaDinamic += "<td><a href='../detalleLocacion/detalleLocacion.html?locacion="+ id[6]+"' class='btn btn-primary botonDetalle'>" +"Detalles" + "</a></td>";
+            tablaDinamic += "<td><a href='../detalleLocacion/detalleLocacion.html?locacion=" + id[6] + "' class='btn btn-primary botonDetalle'>" + "Detalles" + "</a></td>";
             tablaDinamic += "</tr>";
-    let url= "https://pokeapi.co/api/v2/region/"+idRegion;
+        }
+
+        }).fail(function (e){
+            console.log(e)
+        });
 
     $.ajax(
         {
@@ -101,8 +105,6 @@ $(document).ready(function () {
                 $("#previous").removeAttr("disabled");
 
             }
-
-
             listaLocaciones = data.locations.slice((pagina-1)*cantidad,(pagina)*cantidad);
             contenthtml = "";
             $.each(listaLocaciones, function (i, locacion){
@@ -116,8 +118,6 @@ $(document).ready(function () {
             $("#tablaLocaciones").html(contenthtml);
 
         });
-
-
     }).fail(function (err){
         alert("Ocurrio un error al cargar la página")
     });
