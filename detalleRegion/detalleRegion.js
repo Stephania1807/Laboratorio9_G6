@@ -15,7 +15,8 @@ $(document).ready(function () {
     ).done(function (data){
         var pagina = 1;
         var cantidad = 10;
-        $("#labelRegion").text("Región "+data.name);
+        let region = data.name;
+        $("#labelRegion").val(region);
         let listaLocaciones = data.locations.slice((pagina-1)*cantidad,(pagina)*cantidad);
         let paginas= Math.ceil(data.locations.length/cantidad);
         let paginadohtml="<li class='page-item disabled'><button class='page-link' id='previous' >Previous</button></li>";
