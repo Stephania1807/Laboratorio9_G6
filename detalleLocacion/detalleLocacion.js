@@ -3,8 +3,8 @@ $(document).ready(function () {
     // Metodo de obtención de parámetros
     const urlParams = new URLSearchParams(window.location.search);
     const idLocacion = urlParams.get('locacion');
-
     let url = "https://pokeapi.co/api/v2/location/"+idLocacion;
+
     $.ajax({
         method:"GET",
         url:url,
@@ -19,9 +19,15 @@ $(document).ready(function () {
             tablaDinamic += "<tr>";
             tablaDinamic += "<td>" + (i + 1) + "</td>";
             tablaDinamic += "<td>"+ listapokemones2[i].name + "</td>";
-            tablaDinamic += "<td><a href='' class='btn btn-primary botonDetalle'>" +"Ver Pokemones" + "</a></td>";
+            tablaDinamic += "<td><a href='../detalleLocacion/detalleLocacion.html?locacion-area="+ (i+283)+"' class='btn btn-primary botonDetalle'>" +"Ver Pokemones" + "</a></td>";
             tablaDinamic += "</tr>";
         }
+        let regresar = data.region.url.split("/");
+
+        let button="";
+            button ="<td><a href='../detalleRegion/detalleRegion.html?region="+ regresar[6]+"' class='btn btn-primary botonDetalle'>" +"Regresar a la lista de regiones" + "</a></td>";
+
+        $("#regresarRegion").html(button);
         $("#labelLocacion").val(location);
         $("#labelRegion").val(region);
         $("#tablaAreas").html(tablaDinamic);
@@ -30,3 +36,27 @@ $(document).ready(function () {
     });
 
 });
+
+
+$(document).ready(function () {
+    // Metodo de obtención de parámetros
+    const urlParams = new URLSearchParams(window.location.search);
+    const idLocacion_area = urlParams.get('area');
+    let url = "https://pokeapi.co/api/v2/location-area/"+idLocacion_area;
+    $.ajax({
+        method:"GET",
+        url:url,
+    }).done(function (data){
+        let listapokemones3 = data.pokemon_encounters;
+        let card="";
+        for(let i = 0; i<listapokemones3.length; i++){
+            card +="<div>";
+            card +="</div>";
+        }
+        $("#pokemons").html(card);
+    }).fail(function (e){
+        console.log(e)
+    });
+
+});
+
