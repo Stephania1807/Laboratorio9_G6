@@ -1,5 +1,3 @@
-
-
 $(document).ready(function () {
     // Metodo de obtención de parámetros
     const urlParams = new URLSearchParams(window.location.search);
@@ -27,7 +25,7 @@ $(document).ready(function () {
         let regresar = data.region.url.split("/");
 
         let button="";
-            button ="<td><a href='../detalleRegion/detalleRegion.html?region="+ regresar[6]+"' class='btn btn-primary botonDetalle'>" +"Regresar a la Region" + "</a></td>";
+        button ="<td><a href='../detalleRegion/detalleRegion.html?region="+ regresar[6]+"' class='btn btn-primary botonDetalle'>" +"Regresar a la Region" + "</a></td>";
 
         $("#regresarRegion").html(button);
         $("#labelLocacion").text("Locación: " +location);
@@ -43,13 +41,13 @@ $(document).ready(function () {
         $.get(url).done(function (data){
             $("#areaSeleccionada").html("Pokemons a encontrarse en el area: "+data.name);
             let listapokemones = data.pokemon_encounters;
-            for(let i = 0; i<listapokemones.length; i++){
-                $.get(listapokemones[i].pokemon.url).done(function (pikachu){
+            for(let i = 0; i<listapokemones.length; i++) {
+                $.get(listapokemones[i].pokemon.url).done(function (pikachu) {
                     console.log(pikachu);
                     $("#pokemons").append("<div style='border: solid; margin-left: 50px; margin-right: 50px; margin-bottom: 50px' class='col-2'>" +
-                        "<img src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/version\n" +
-                        "s/generation-v/black-white/animated/" +pikachu.id+".gif'> <br>" +pikachu.name +" </div>")
-                }).fail(function (ee){
+                        "<img src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/version\n" + "s/generation-v/black-white/animated/" + pikachu.id + ".gif'> <br>" + pikachu.name + " </div>")
+
+                }).fail(function (ee) {
                     console.log(ee);
                 })
 
