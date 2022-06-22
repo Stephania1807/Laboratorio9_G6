@@ -28,8 +28,8 @@ $(document).ready(function () {
             button ="<td><a href='../detalleRegion/detalleRegion.html?region="+ regresar[6]+"' class='btn btn-primary botonDetalle'>" +"Regresar a la lista de regiones" + "</a></td>";
 
         $("#regresarRegion").html(button);
-        $("#labelLocacion").val(location);
-        $("#labelRegion").val(region);
+        $("#labelLocacion").text("Locación:" +location);
+        $("#labelRegion").text("Región:" +region);
         $("#tablaAreas").html(tablaDinamic);
     }).fail(function (e){
         console.log(e)

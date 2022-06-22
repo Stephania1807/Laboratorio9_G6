@@ -9,6 +9,7 @@ $(document).ready(function () {
         method:"GET",
         url:url,
     }).done(function (data){
+
         let listapokemones1 = data.locations;
         let region = data.name;
         console.log(listapokemones1);
@@ -18,7 +19,8 @@ $(document).ready(function () {
             tablaDinamic += "<tr>";
             tablaDinamic += "<td>" + (i + 1) + "</td>";
             tablaDinamic += "<td>"+ listapokemones1[i].name + "</td>";
-            tablaDinamic += "<td><a href='../detalleLocacion/detalleLocacion.html?locacion="+ (i+67)+"' class='btn btn-primary botonDetalle'>" +"Detalles" + "</a></td>";
+            let id = listapokemones1[i].url.split("/");
+            tablaDinamic += "<td><a href='../detalleLocacion/detalleLocacion.html?locacion="+ id[6]+"' class='btn btn-primary botonDetalle'>" +"Detalles" + "</a></td>";
             tablaDinamic += "</tr>";
         }
         $("#labelRegion").val(region);
