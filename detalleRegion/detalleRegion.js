@@ -10,6 +10,7 @@ $(document).ready(function () {
         url:url,
     }).done(function (data){
         let listapokemones1 = data.locations;
+        let region = data.name;
         console.log(listapokemones1);
         console.log(listapokemones1.length);
         let tablaDinamic="";
@@ -20,7 +21,7 @@ $(document).ready(function () {
             tablaDinamic += "<td><a href='../detalleLocacion/detalleLocacion.html?locacion="+ (i+67)+"' class='btn btn-primary botonDetalle'>" +"Detalles" + "</a></td>";
             tablaDinamic += "</tr>";
         }
-
+        $("#labelRegion").val(region);
         $("#tablaLocaciones").html(tablaDinamic);
     }).fail(function (e){
         console.log(e)
